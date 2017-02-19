@@ -1,28 +1,20 @@
 import { withRouter } from 'react-router-dom';
+import styled from 'styled-components';
+import { auth, logout } from '../stores/Api';
 
-
-
-const fakeAuth = {
-  isAuthenticated: false,
-  authenticate(cb) {
-    this.isAuthenticated = true
-    setTimeout(cb, 100) // fake async
-  },
-  signout(cb) {
-    this.isAuthenticated = false
-    setTimeout(cb, 100)
-  }
-}
+const Sp = styled.p`
+margin: 0px;
+`;
 
 const AuthButton = withRouter(({ push }) => (
-  fakeAuth.isAuthenticated ? (
-    <p>
+  auth.isAuthenticated ? (
+    <Sp>
       Welcome! <button onClick={() => {
-        fakeAuth.signout(() => push('/'))
+        logout()
       }}>Sign out</button>
-    </p>
+    </Sp>
   ) : (
-    <p>You are not logged in.</p>
+    <Sp>You are not logged in.</Sp>
   )
 ));
 

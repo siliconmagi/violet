@@ -15,11 +15,6 @@ interface MyProps {
 }
 interface MyState {}
 
-//todo
-// 1) input email
-// 2) input username
-// 3) handle submit
-
 @connect(['txtUserName', 'txtEmail', 'txtPassword', 'emailSignUp', 'login', 'logout', 'isLoggedIn', 'errorMessage'])
 export default class Layout extends Component<MyProps, MyState> {
 

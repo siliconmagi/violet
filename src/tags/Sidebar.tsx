@@ -38,6 +38,8 @@ border-radius: 3px;
 const Sidebar = () => (
   <Sul>
   <Simg src="https://cdn.rawgit.com/siliconmagi/pictures/master/atar.svg" />
+  <AuthButton />
+  <li><NLink to="/login">Login</NLink></li>
   <li><NLink to="/">Home</NLink></li>
   <li><NLink to="/blog">Blog</NLink></li>
   <li><NLink to="/about">About</NLink></li>
