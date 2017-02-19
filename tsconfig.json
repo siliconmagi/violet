@@ -1,0 +1,51 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "jsx": "preserve",
+    "jsxFactory": "createElement",
+    "outDir": "./dist/",
+    "target": "es5",
+    "module": "commonjs",
+    "sourceMap": true,
+    "lib": [
+      "es6",
+      "es7",
+      "dom"
+    ],
+    "noUnusedLocals": false,
+    "strictNullChecks": false,
+    "removeComments": false,
+    "noEmit": true,
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "types": [
+      "inferno",
+      "source-map",
+      "uglify-js",
+      "webpack",
+      "node"
+    ]
+  },
+  "include": [
+    "types/*",
+    "src/**/*",
+    "node_modules/@types"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ],
+  "awesomeTypescriptLoaderOptions": {
+    "forkChecker": true,
+    "useWebpackText": true
+  },
+  "compileOnSave": false,
+  "buildOnSave": false,
+  "atom": {
+    "rewriteTsconfig": false
+  }
+}
