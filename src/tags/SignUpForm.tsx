@@ -58,8 +58,6 @@ export default class Layout extends Component<MyProps, MyState> {
       <input type="submit" onClick={this.handleSignUp} value="Sign Up" disabled={errorMessage.disabled}>Sign up</input>
       </form>
       <div>{errorMessage.Value}</div>
-      <div>{txtPassword.Value}</div>
-      <div>{txtEmail.Value}</div>
       </div>
     );
   }
