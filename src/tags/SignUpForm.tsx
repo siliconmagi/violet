@@ -48,14 +48,18 @@ export default class Layout extends Component<MyProps, MyState> {
   render({ txtUserName, txtEmail, txtPassword, errorMessage, isLoggedIn }) {
     return (
       <div>
-      { isLoggedIn.Value ? null : <input type='text' placeholder= 'User Name' value={txtUserName.Value} onInput={this.handleUserNameChange} /> }
-      { isLoggedIn.Value ? null : <input type='text' placeholder= 'Email' value={txtEmail.Value} onInput={this.handleEmailChange} /> }
-      { isLoggedIn.Value ? null : <input type='password' placeholder='Password' value={txtPassword.Value} onInput={this.handlePasswordChange} /> }
+      <form>
+      <input type='text' placeholder='User Name' value={txtUserName.Value} onInput={this.handleUserNameChange} />
       <br/>
-      { isLoggedIn.Value ? null : <button onClick={this.handleLogin} disabled={errorMessage.disabled}>Login</button> }
-      { isLoggedIn.Value ? null : <button onClick={this.handleSignUp} disabled={errorMessage.disabled}>Sign up</button> }
-      { isLoggedIn.Value ? <button onClick={this.handleLogout} disabled={errorMessage.disabled}>Logout</button> : null }
+      <input type='text' placeholder='Email' value={txtEmail.Value} onInput={this.handleEmailChange} />
+      <br/>
+      <input type='password' placeholder='Password' value={txtPassword.Value} onInput={this.handlePasswordChange} />
+      <br/>
+      <input type="submit" onClick={this.handleSignUp} value="Sign Up" disabled={errorMessage.disabled}>Sign up</input>
+      </form>
       <div>{errorMessage.Value}</div>
+      <div>{txtPassword.Value}</div>
+      <div>{txtEmail.Value}</div>
       </div>
     );
   }
