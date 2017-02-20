@@ -41,7 +41,6 @@ const View = () => (
       component={route.main}
     />
   ))}
-  <AuthContainer>
   {AuthRoutes.map((route, index) => (
     <Route
       key={index}
@@ -50,7 +49,6 @@ const View = () => (
       component={route.main}
     />
   ))}
-  </AuthContainer>
   </div>
   </div>
 );

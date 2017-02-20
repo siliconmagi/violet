@@ -10,14 +10,16 @@ interface IProps {
 };
 interface IState {};
 
+// <Redirect
+// to={{pathname: '/login'}}
+// />;
+//    console.log('hi') ;
+
+
 @connect(['auth', 'currentURL'])
 export default class AuthContainer extends Component <IProps, IState> {
-  public componentDidMount({auth, currentURL}) {
-    if (!auth.isLoggedIn) {
-      <Redirect
-        to={{pathname: '/login'}}
-      />;
-    }
+  public componentDidMount() {
+   console.log(this.context.router.location.pathname); 
   }
 
   public render({auth}) {
