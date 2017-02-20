@@ -2,6 +2,7 @@ import Inferno from 'inferno';
 import Component from 'inferno-component';
 import { connect } from 'inferno-mobx';
 import { Redirect } from 'react-router-dom';
+import { auth } from './stores/Api';
 
 interface IProps {
   auth;
@@ -19,7 +20,12 @@ interface IState {};
 @connect(['auth', 'currentURL'])
 export default class AuthContainer extends Component <IProps, IState> {
   public componentDidMount() {
-   console.log(this.context.router.location.pathname); 
+   console.log(auth.isLoggedIn);
+
+   console.log(this.context.router.location.pathname);
+   <Redirect 
+    to={{pathname: '/login'}}
+   />;
   }
 
   public render({auth}) {
