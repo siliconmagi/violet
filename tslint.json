@@ -1,8 +1,10 @@
 {
-  "extends": ["tslint:latest"],
+  "extends": ["tslint:latest", "tslint-react"],
   "rules": {
     "interface-over-type-literal": "off",
     "no-consecutive-blank-lines": [true, 2],
-    "quotemark": [true, "single", "jsx-double"]
+    "quotemark": [true, "single", "jsx-double"],
+    "jsx-no-lambda": true,
+    "jsx-no-multiline-js": false
   }
 }

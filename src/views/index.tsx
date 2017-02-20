@@ -1,15 +1,15 @@
-import Inferno from 'inferno'
-import Component from 'inferno-component'
-import { Route, Link, Redirect, withRouter } from 'react-router-dom'
-import Layout from '../tags/Layout'
-import Article from './Article'
-import Error404 from './Error404'
-import { Routes, AuthRoutes } from '../Routes'
+import Inferno from 'inferno';
+import Component from 'inferno-component';
+import { Link, Redirect, Route, withRouter } from 'react-router-dom';
 // import AuthRoutes from '../AuthRoutes'
-import styled, { injectGlobal } from 'styled-components'
-import Sidebar from '../tags/Sidebar'
-import auth from '../stores/Api'
-import AuthContainer from '../AuthContainer'
+import styled, { injectGlobal } from 'styled-components';
+import AuthContainer from '../AuthContainer';
+import { AuthRoutes, Routes } from '../Routes';
+import {auth} from '../stores/Api';
+import Layout from '../tags/Layout';
+import Sidebar from '../tags/Sidebar';
+import Article from './Article';
+import Error404 from './Error404';
 
 injectGlobal`
 body {
@@ -29,46 +29,47 @@ a {
 }
 `;
 
-// Root Div
-const Rdiv = styled.div`
-`;
-
-// Main Div
-const Mdiv = styled.div`
-`;
-
 const View = () => (
-  <Rdiv>
+  <div>
   <Sidebar />
-  <Mdiv>
+  <div>
   {Routes.map((route, index) => (
     <Route
-    key={index}
-    path={route.path}
-    exact={route.exact}
-    component={route.main}
+      key={index}
+      path={route.path}
+      exact={route.exact}
+      component={route.main}
     />
   ))}
+  <AuthContainer>
   {AuthRoutes.map((route, index) => (
-    <PrivateRoute
-    key={index}
-    path={route.path}
-    exact={route.exact}
-    component={route.main}
+    <Route
+      key={index}
+      path={route.path}
+      exact={route.exact}
+      component={route.main}
     />
   ))}
-  </Mdiv>
-  </Rdiv>
+  </AuthContainer>
+  </div>
+  </div>
 );
 
-const PrivateRoute = ({ component, ...rest }) => (
-  <Route {...rest} render={props => (
-      <Redirect to={{
-        pathname: '/login',
-        state: { from: props.location }
-      }}/>
-    )}/>
-)
+// @connect(['auth'])
+// const PrivateRoute = ({ component, ...rest }) => (
+  // <Route
+    // {...rest}
+    // render={(props) => (
+    // auth.isLoggedIn ? (
+      // console.log(auth.isLoggedIn),
+    // ) : (
+    // <Redirect to= { {
+      // pathname: '/login',
+      // { from: props.location };
+    // } }/>
+    // );
+  // )}/>;
+// )
 
 
-export default View
+export default View;

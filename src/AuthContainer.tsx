@@ -1,30 +1,30 @@
-import Inferno from 'inferno'
-import Component from 'inferno-component'
+import Inferno from 'inferno';
+import Component from 'inferno-component';
 import { connect } from 'inferno-mobx';
-import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom';
 
-interface MyProps {
+interface IProps {
   auth;
   currentURL;
   children;
-}
-interface MyState {}
+};
+interface IState {};
 
 @connect(['auth', 'currentURL'])
-export default class AuthContainer extends Component <MyProps, MyState> {
-  componentDidMount({auth, currentURL}) {
-    if (!auth.isAuthenticated) {
-      <Redirect to={{
-        pathname: '/login',
-      }}/>
+export default class AuthContainer extends Component <IProps, IState> {
+  public componentDidMount({auth, currentURL}) {
+    if (!auth.isLoggedIn) {
+      <Redirect
+        to={{pathname: '/login'}}
+      />;
     }
   }
 
-  render({auth}) {
+  public render({auth}) {
     if (auth.isLoggedIn) {
-      return this.props.children
+      return this.props.children;
     } else {
-      return null
+      return null;
     }
   }
 }

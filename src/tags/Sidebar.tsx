@@ -1,6 +1,6 @@
-import { Route, Link, withRouter } from 'react-router-dom';
-import Routes from '../Routes';
+import { Link, Route, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
+import Routes from '../Routes';
 import AuthButton from './AuthButton';
 
 // Navbar Links
@@ -37,8 +37,8 @@ border-radius: 3px;
 
 const Sidebar = () => (
   <Sul>
-  <Simg src="https://cdn.rawgit.com/siliconmagi/pictures/master/atar.svg" />
   <AuthButton />
+  <Simg src="https://cdn.rawgit.com/siliconmagi/pictures/master/atar.svg" />
   <li><NLink to="/login">Login</NLink></li>
   <li><NLink to="/">Home</NLink></li>
   <li><NLink to="/blog">Blog</NLink></li>
@@ -46,4 +46,4 @@ const Sidebar = () => (
   </Sul>
 );
 
-export default Sidebar
+export default Sidebar;
